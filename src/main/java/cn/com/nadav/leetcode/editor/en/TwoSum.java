@@ -86,6 +86,7 @@ public class TwoSum {
             // In case there is no solution, though the problem statement assures there is one
             return new int[]{-1, -1};
         }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
-    }
+}
