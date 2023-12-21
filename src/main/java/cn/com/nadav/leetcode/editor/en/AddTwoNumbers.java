@@ -62,34 +62,44 @@ public class AddTwoNumbers {
      */
     class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            ListNode dummyHeader = new ListNode(0);
-            ListNode curr = dummyHeader;
+            ListNode dummyHead = new ListNode(0);
+            ListNode current = dummyHead;
 
             int carry = 0;
             while (l1 != null || l2 != null) {
-                int sum = 0;
-                if (l1 != null) {
-                    sum += l1.val;
-                    l1 = l1.next;
-                }
-                if (l2 != null) {
-                    sum += l2.val;
-                    l2 = l2.next;
-                }
-                sum += carry;
+//                int sum = 0;
+//                if (l1 != null) {
+//                    sum += l1.val;
+//                    l1 = l1.next;
+//                }
+//                if (l2 != null) {
+//                    sum += l2.val;
+//                    l2 = l2.next;
+//                }
+//                sum += carry;
+                int x = l1 != null ? l1.val : 0;
+                int y = l2 != null ? l2.val : 0;
 
+                // 公式
+                int sum = x + y + carry;
                 // 进位
                 carry = sum / 10;
 
-                curr.next = new ListNode(sum % 10);
-                curr = curr.next;
-            }
+                current.next = new ListNode(sum % 10);
+                current = current.next;
 
-            // 处理进位
-            if (carry != 0) {
-                curr.next = new ListNode(carry);
+                if (l1 != null) {
+                    l1 = l1.next;
+                }
+                if (l2 != null) {
+                    l2 = l2.next;
+                }
             }
-            return dummyHeader.next;
+            // 额外处理进位
+            if (carry != 0) {
+                current.next = new ListNode(carry);
+            }
+            return dummyHead.next;
         }
     }
 
