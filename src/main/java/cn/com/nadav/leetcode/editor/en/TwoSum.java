@@ -64,17 +64,28 @@ public class TwoSum {
             if (nums == null || nums.length <= 1) {
                 return new int[]{-1, -1};
             }
-            Map<Integer, Integer> numMap = new HashMap<>(nums.length);
+
+            // Create a hashmap to store the values and their indices
+            Map<Integer, Integer> map = new HashMap<>();
+
+            // Iterate through the array
             for (int i = 0; i < nums.length; i++) {
+                // Calculate the complement of the current element
                 int complement = target - nums[i];
-                if (numMap.containsKey(complement)) {
-                    return new int[]{numMap.get(complement), i};
+
+                // Check if the complement is already in the map
+                if (map.containsKey(complement)) {
+                    // If it is, return the current index and the index of the complement
+                    return new int[]{map.get(complement), i};
                 }
-                numMap.put(nums[i], i);
+
+                // If not, put the current element and its index in the map
+                map.put(nums[i], i);
             }
+
+            // In case there is no solution, though the problem statement assures there is one
             return new int[]{-1, -1};
         }
-    }
 //leetcode submit region end(Prohibit modification and deletion)
 
-}
+    }
