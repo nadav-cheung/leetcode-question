@@ -52,10 +52,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int lengthOfLongestSubstring(String s) {
-            if (s == null || s.isEmpty()) {
-                return 0;
-            }
-
             int left = 0;
             int maxLength = 0;
             Set<Character> charSet = new HashSet<>(s.length());
@@ -76,10 +72,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
 
         public int lengthOfLongestSubstringUseMap(String s) {
-            if (s == null || s.isEmpty()) {
-                return 0;
-            }
-
             int left = 0;
             int maxLength = 0;
             Map<Character, Integer> charMap = new HashMap<>(s.length());
@@ -97,10 +89,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
 
         public int lengthOfLongestSubstringUseArray(String s) {
-            if (s == null || s.isEmpty()) {
-                return 0;
-            }
-
             int n = s.length();
             int maxLength = 0;
             int[] charIndex = new int[128];
