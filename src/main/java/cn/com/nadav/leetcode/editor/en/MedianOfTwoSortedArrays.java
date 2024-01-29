@@ -87,7 +87,7 @@ public class MedianOfTwoSortedArrays {
             // nums1[i-1] <= nums2[j]
             // nums2[j-1] <= nums1[i]
             // i + j = (n + 1) / 2
-
+            // nums1[left,right) 左闭右开区间
             while (left < right) {
                 // 两个队列的临时变量
                 int i = left + (right - left) / 2;
